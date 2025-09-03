@@ -8,18 +8,28 @@ main() {
     while true; do
         # Пробуем автоопределение
         if tz=$(curl -s --connect-timeout 3 https://ipapi.co/timezone 2>/dev/null) && [[ -n "$tz" ]]; then
-            log_info "Автоопределение: $tz"
+            if [[ "$tz" =~ ^[A-Z][a-z]+/[A-Z][a-zA-Z_/]+$ ]]; then
+                log_info "Автоопределение: $tz"
+            else
+                log_warn "Сервер вернул некорректный формат таймзоны: $tz"
+                log_info "переходим к ручному выбору..."
+                break
+
+            fi
             read -rp "Использовать эту таймзону? [Y/n]: " -n 1 
             echo
             case $REPLY in
                 [Yy]|"")
-                    sudo timedatectl set-timezone "$tz"
+                    timedatectl set-timezone "$tz"
                     log_info "Таймзона установлена: $tz"
                     return 0
                     ;;
                 [Nn])
                     log_info "переходим к ручному выбору..."
                     break
+                    ;;
+                *)  
+                    log_warn "Неверный выбор, попробуйте ещё раз"
                     ;;
             esac
         else
@@ -80,7 +90,7 @@ main() {
 
     if [[ ${#zones[@]} -eq 1 ]]; then
         local city="${zones[0]%% *}"
-        sudo timedatectl set-timezone "$city"
+        timedatectl set-timezone "$city"
         log_info "Таймзона установлена: $city"
         return 0
     fi
@@ -90,8 +100,10 @@ main() {
         [[ -n "$choice" ]] && break
     done
 
+    [[ -z "$choice" ]] && { log_warn "Выбор отменён"; return 1; }
+    
     local city="${choice%% *}"
-    sudo timedatectl set-timezone "$city"
+    timedatectl set-timezone "$city"
     log_info "Таймзона установлена: $city"
    
 }
