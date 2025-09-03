@@ -5,6 +5,8 @@ log_info "Устанавливаем базовые пакеты..."
 
 pacman -Syu --noconfirm
 pacman -S --noconfirm --needed \
-  base-devel git cat htop man-db man-pages openssh curl wget pacman-contrib || die "Не удалось установить" 
+  base-devel git htop man-db man-pages openssh curl wget pacman-contrib \
+     tree unzip 7zip lsof procps-ng pciutils usbutils  \
+      bash-completion dialog ncdu || die "Не удалось установить" 
 
 log_info "Установка пакетов завершена"
