@@ -4,6 +4,31 @@
 source "$(dirname "$0")/scripts/00-functions.sh"
 check_root
 
+# Обработка аргументов командной строки
+show_help() {
+    echo "Использование: $0 [--all|--help]"
+    echo "  --all, -a    Запустить все скрипты автоматически"
+    echo "  --help, -h   Показать эту справку"
+}
+
+if [[ $# -gt 0 ]]; then
+    case $1 in
+        "--all"|"-a")
+            full_setup
+            exit 0
+            ;;
+        "--help"|"-h")
+            show_help  
+            exit 0
+            ;;
+        *)
+            show_help  
+            log_error "Неизвестный аргумент: $1"
+            ;;
+    esac
+fi
+
+
 # Функция запуска скриптов
 run_script() {
     local script="$1"
