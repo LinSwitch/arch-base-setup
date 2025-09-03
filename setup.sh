@@ -34,23 +34,20 @@ run_script() {
     local script="$1"
     local base_dir="$(dirname "$0")"
     local script_path="$base_dir/scripts/$script"
-    echo "$script_path"
     if [[ -f "$script_path" ]]; then
         log_info "Запуск: $script..."
         bash "$script_path"
     else
         log_error "Скрипт $script не найден!"
+        return 1
     fi
 }
 
 # Функция полной установки
 full_setup() {
     log_info "Запуск полной настройки системы..."
-    for script_path in "$(dirname "$0")/scripts"/0*.sh; do
-        local script_name=$(basename "$script_path")
-        if [[ "$script_name" != "00-functions.sh" ]]; then
-            run_script "$script_name"
-        fi
+    for script_path in "$(dirname "$0")"/scripts/0[1-9]-*.sh; do
+        run_script "$(basename "$script_path")"
     done
 }
 
@@ -79,7 +76,7 @@ while true; do
         3) run_script "03-aur-helper.sh" ;;
         4) run_script "04-timezone.sh" ;;
         5) run_script "05-trim.sh" ;;
-        6) full_setup ;;  # Используем отдельную функцию
+        6) full_setup ;;  
         7) exit 0 ;;
         *) log_warn "Неверный выбор!" ;;
     esac

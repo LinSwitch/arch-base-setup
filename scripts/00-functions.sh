@@ -9,11 +9,16 @@ NC='\033[0m'
 
 log_info() { echo -e "${GREEN}[INFO]${NC} $1"; }
 log_warn() { echo -e "${YELLOW}[WARN]${NC} $1"; }
-log_error() { echo -e "${RED}[ERROR]${NC} $1"; exit 1; }
+log_error() { echo -e "${RED}[ERROR]${NC} $1"; }
+
+die() { 
+    log_error "$1"
+    exit 1
+}
 
 # Проверка прав root
 check_root() {
     if [[ $EUID -ne 0 ]]; then
-        log_error "Этот скрипт требует прав root. Запустите с sudo."
+        die "Этот скрипт требует прав root. Запустите с sudo."
     fi
 }

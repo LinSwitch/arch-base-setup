@@ -2,7 +2,7 @@
 source "$(dirname "$0")/00-functions.sh"
 
 log_info "Обновление зеркал с помощью reflector..."
-pacman -Sy --needed reflector || log_error "Не удалось установить reflector"
+pacman -Sy --needed reflector || die "Не удалось установить reflector"
 success=false
 for attempt in {1..3}; do
 	if reflector \
