@@ -77,7 +77,8 @@ while true; do
         4) run_script "04-timezone.sh" ;;
         5) run_script "05-trim.sh" ;;
         6) full_setup ;;  
-        7) exit 0 ;;
+        7) echo ""
+           exit 0 ;;
         *) log_warn "Неверный выбор!" ;;
     esac
     
