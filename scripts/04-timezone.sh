@@ -22,6 +22,8 @@ main() {
                 [Yy]|"")
                     timedatectl set-timezone "$tz"
                     log_info "Таймзона установлена: $tz"
+                    timedatectl set-ntp true
+                    log_info "Синхронизация времени включена"
                     return 0
                     ;;
                 [Nn])
@@ -92,6 +94,8 @@ main() {
         local city="${zones[0]%% *}"
         timedatectl set-timezone "$city"
         log_info "Таймзона установлена: $city"
+        timedatectl set-ntp true
+        log_info "Синхронизация времени включена"
         return 0
     fi
 
@@ -105,7 +109,8 @@ main() {
     local city="${choice%% *}"
     timedatectl set-timezone "$city"
     log_info "Таймзона установлена: $city"
-   
+    timedatectl set-ntp true
+    log_info "Синхронизация времени включена"
 }
 
 main "$@"
