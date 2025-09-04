@@ -37,6 +37,8 @@ if ! git_clone_retry "https://aur.archlinux.org/$chosen_helper.git" "$work_dir";
     die "Не удалось клонировать $chosen_helper после 3 попыток"
 fi
 
+chown -R "$SUDO_USER:" "$work_dir"
+
 log_info "Собираем и устанавливаем $chosen_helper..."
 if sudo -u "$SUDO_USER" bash -c "cd '$work_dir' && makepkg -si --noconfirm"; then
     log_info "$chosen_helper успешно установлен!"
