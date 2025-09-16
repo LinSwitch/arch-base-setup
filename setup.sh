@@ -11,24 +11,6 @@ show_help() {
     echo "  --help, -h   Показать эту справку"
 }
 
-if [[ $# -gt 0 ]]; then
-    case $1 in
-        "--all"|"-a")
-            full_setup
-            exit 0
-            ;;
-        "--help"|"-h")
-            show_help  
-            exit 0
-            ;;
-        *)
-            show_help  
-            log_error "Неизвестный аргумент: $1"
-            ;;
-    esac
-fi
-
-
 # Функция запуска скриптов
 run_script() {
     local script="$1"
@@ -50,6 +32,23 @@ full_setup() {
         run_script "$(basename "$script_path")"
     done
 }
+
+if [[ $# -gt 0 ]]; then
+    case $1 in
+        "--all"|"-a")
+            full_setup
+            exit 0
+            ;;
+        "--help"|"-h")
+            show_help  
+            exit 0
+            ;;
+        *)
+            show_help  
+            log_error "Неизвестный аргумент: $1"
+            ;;
+    esac
+fi
 
 # Меню
 show_menu() {
