@@ -8,6 +8,7 @@
 - [5. Extension Manager (GUI-альтернатива)](#5-extension-manager-gui-альтернатива)  
 - [6. Отключение проблемных расширений](#6-отключение-проблемных-расширений)  
 - [7. Примечания](#7-примечания)
+- [8. Расширения](#8-расширения)
 
 ---
 
@@ -115,3 +116,34 @@ sudo rm -f /var/lib/pacman/db.lck
 ```
 Рекомендация: использовать один инструмент за сессию — либо Pamac, либо pacman/paru, чтобы избежать конфликтов.
 
+---
+
+## 8. Расширения
+Активные в GNOME 49
+
+- Arch Linux Updates Indicator — счётчик обновлений
+- Vitals — температура, загрузка, память в панели
+- User Themes — переключаем пользовательские темы
+- Just Perfection — «всё в одном» для внешнего вида
+- Gtk4 Desktop Icons NG — иконки на рабочем столе
+- Dash to Dock — превращает Dash в полноценную док-панель
+- Dash to Panel — объединяет верхнюю панель и Dash (Windows-подобный вид)
+- Apps menu — классическое меню приложений
+- ArcMenu — кнопка «Пуск» в панель
+- Caffeine — блокирует сон и блокировку экрана
+- Compiz Alike Magic Lamp Effect — эффект «лампы» при сворачивании
+- Compiz Windows Effect — плавные анимации окон
+- Clipboard Indicator — история буфера обмена
+- AppIndicator and KStatusNotifierItem Support — трей-иконки Telegram, Discord и др.
+- Auto Move Windows — автоматически раскладывает окна по столам
+- RunCat — кошка, показывающая загрузку CPU
+
+Ожидают обновления под GNOME 49
+
+- Blur My Shell — размытие фона
+- Dash2Dock Animated — анимация иконок в доке
+- Gnome Fuzzy App Search — поиск с ошибками
+- Quick Settings Tweaks — тонкая настройка быстрого меню
+- Top Bar Organizer — зоны и сортировка значков
+- Forge — тайлинг-менеджер в GNOME
+- DDTerm — выпадающий терминал с вкладками
