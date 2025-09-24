@@ -136,7 +136,7 @@ sudo rm -f /var/lib/pacman/db.lck
 - Clipboard Indicator — история буфера обмена
 - AppIndicator and KStatusNotifierItem Support — трей-иконки Telegram, Discord и др.
 - Auto Move Windows — автоматически раскладывает окна по столам
-- RunCat — кошка, показывающая загрузку CPU
+- DDTerm — выпадающий терминал с вкладками
 
 Ожидают обновления под GNOME 49
 
@@ -146,4 +146,4 @@ sudo rm -f /var/lib/pacman/db.lck
 - Quick Settings Tweaks — тонкая настройка быстрого меню
 - Top Bar Organizer — зоны и сортировка значков
 - Forge — тайлинг-менеджер в GNOME
-- DDTerm — выпадающий терминал с вкладками
+
