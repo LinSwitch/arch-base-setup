@@ -137,13 +137,13 @@ sudo rm -f /var/lib/pacman/db.lck
 - AppIndicator and KStatusNotifierItem Support — трей-иконки Telegram, Discord и др.
 - Auto Move Windows — автоматически раскладывает окна по столам
 - DDTerm — выпадающий терминал с вкладками
+- Top Bar Organizer — зоны и сортировка значков
+- Dash2Dock Animated — анимация иконок в доке
 
 Ожидают обновления под GNOME 49
 
 - Blur My Shell — размытие фона
-- Dash2Dock Animated — анимация иконок в доке
 - Gnome Fuzzy App Search — поиск с ошибками
 - Quick Settings Tweaks — тонкая настройка быстрого меню
-- Top Bar Organizer — зоны и сортировка значков
 - Forge — тайлинг-менеджер в GNOME
 
